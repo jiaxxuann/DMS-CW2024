@@ -64,7 +64,7 @@ public class PlaneFactory {
                 200,                  // imageHeight
                 1000.0,                   // initialX
                 400.0,                 // initialY
-                1                      // initialHealth
+                5                      // initialHealth
         );
     }
 }
