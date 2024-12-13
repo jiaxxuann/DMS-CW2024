@@ -98,9 +98,6 @@ Your environment is now set up to compile and run the project!
 - New assets are introduced in the new levels to enhance gameplay experience for user
 - game logic is similar to first two levels
 
-- list features successfully implemented, functioning as expected, brief explanation
-
-
 
 ## 4. Implemented but Not Working Properly
 ### 4.1 Background Music
@@ -116,9 +113,6 @@ Your environment is now set up to compile and run the project!
 - My guess on the occurence of this problem is that new MainMenu object is being created in Win and Lose screen instead of calling the previous MainMenu screen
 - Due to lack of time, the logic of the buttons were being prioritised so this issue was not resolved 
 
-- identify features implemented but not working correctly. explain issue encountered, if possible steps took to address them
-
-
 
 ## 5. Features Not Implemented
 ### 5.1 Pause Screen
@@ -132,9 +126,6 @@ Your environment is now set up to compile and run the project!
 ### 5.3 'Choose Your Dragon'
 - There should also be a button called 'Choose Your Dragon' for user to choose their 'userplane' before proceeding to the game
 - This idea was also ditched because of complexity and lack of time
-
-- list features unable implement, explanation they were left out(no time)
-
 
 
 ## 6. New Java Classes
@@ -205,6 +196,7 @@ Your environment is now set up to compile and run the project!
 - refactored Plane class to handle shared functionality across all planes
 - simplified client code by introducing a factory-based approach for creating planes
 
+
 ### 6.2 New Levels
 #### 6.2.1 LevelThree, LevelFour
 - added two new levels with new assets and backgrounds as additions to make the game more enjoyable
@@ -212,6 +204,7 @@ Your environment is now set up to compile and run the project!
 
 #### 6.2.1 LevelFourView
 - consist of the same logic as LevelTwoView as LevelFour contains the Boss
+
 
 ### 6.3 Screens
 #### 6.3.1 MainMenu
@@ -226,26 +219,35 @@ Your environment is now set up to compile and run the project!
 - integrated LoseScreen with game logic to display after losing a level
 - the LoseScreen contains 'Restart' and 'Main Menu' buttons
 
-- enumerate new java classes introduced, brief description of new class's purpose and location in code
-- new levels, gameplay enhancement, unique features
-
-
-
 
 ## 7. Modified Java Classes
-### 6.1 Refactoring Classes
-#### 6.1.1 LevelView, LevelViewTwo
+### 7.1 Renaming Classes
+#### 7.1.1 LevelView, LevelViewTwo
 - renamed `LevelView` to `LevelParentView`
 - renamed `LevelViewLevelTwo` to `LevelTwoView`
+- for better clarity 
 
-#### 6.1.2
-#### 6.1.3
+### 7.2 Fix Bugs
+#### 7.2.1 ShieldImage
+- fixed InvocationTargetException error by changing fixed "/com/example/demo/images/shield.jpg" to "/com/example/demo/images/shield.png"
+- necessary to run the game
 
-- plane classes
-- level classes
-- controller classes
-- list modified classes from provided code, describe changes(fix bug, packages, code, name, single responsibilities, design pattern) and why isit necessary
+### 7.3 Introduce Packages
+#### 7.3.1 actors, collision, controller, levels, ui and util under com.example.demo
+- Separated classes into actors, collision, controller, levels, ui and util
+- for better organisation of java files
 
+### 7.4 Design Pattern : MVC
+#### 7.4.1 LevelParent
+- Split LevelParent class into LevelParen(model), LevelParentController(controller) and LevelParentView(view)
+- to separate concerns in applications, enhancing maintainability, scalability, and testability
+
+### 7.5 Single Responsibilities
+#### 7.5.1 LevelParentView, HeartDisplay
+- renamed `removeHearts` method in `LevelParent` to `updateHeartCount` to better reflect its purpose
+- moved the heart removal logic to `HeartDisplay`, delegating the responsibility to the `HeartDisplay` class
+- `HeartDisplay` now handles heart removal with a new `removeHearts` method, improving code organization and separation of concerns
+- simplified `LevelParent` by offloading heart display management to `HeartDisplay`
 
 
 ## 8. Unexpected Problems
