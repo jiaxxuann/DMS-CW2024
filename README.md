@@ -13,6 +13,11 @@ To successfully compile and run this project, ensure you have the following prer
 - Git: For cloning the project repository.
 
 ### 2.2 Cloning the Project
+**From Git: ** Use git clone [repository URL] to clone the repository
+**From ZIP file: **
+1. Download: Save zip file to your computer
+2. Extract: Unzip to a suitable location
+
 To get the project files onto your local machine, follow these steps:
 1. Open a terminal or command prompt.
 
