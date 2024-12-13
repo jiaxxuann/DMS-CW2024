@@ -42,12 +42,12 @@ public class LevelParentController {
 
     public void winGame(){
         model.stopGameLoop();
-        view.showWinImage();
+        view.showWinScreen();
     }
 
     public void loseGame(){
         model.stopGameLoop();
-        view.showGameOverImage();
+        view.showLoseScreen();
     }
 
     public void updateLevelView(){

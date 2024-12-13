@@ -2,10 +2,13 @@ package com.example.demo.actors.projectiles;
 
 import com.example.demo.actors.core.ActiveActorDestructible;
 
-public abstract class Projectile extends ActiveActorDestructible {
+public class Projectile extends ActiveActorDestructible {
 
-	public Projectile(String imageName, int imageHeight, double initialXPos, double initialYPos) {
+	private final int horizontalVelocity;
+
+	public Projectile(String imageName, int imageHeight, double initialXPos, double initialYPos, int horizontalVelocity) {
 		super(imageName, imageHeight, initialXPos, initialYPos);
+		this.horizontalVelocity = horizontalVelocity;
 	}
 
 	@Override
@@ -14,6 +17,13 @@ public abstract class Projectile extends ActiveActorDestructible {
 	}
 
 	@Override
-	public abstract void updatePosition();
+	public void updatePosition() {
+		moveHorizontally(horizontalVelocity);
+	}
+
+	@Override
+	public void updateActor() {
+		updatePosition();
+	}
 
 }
